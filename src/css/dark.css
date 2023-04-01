@@ -1,0 +1,22 @@
+/*************************************************/
+/********* CSS STYLES for JUSTFORT.RO ************/
+
+/*********** dark theme ***************/
+
+/**************** color variables *******/
+:root {
+	--primary-red: #c10000;
+	--secondary-red: #a30000;
+	--main-grey: #9e9e9e;
+	--primary-bg-gradient: linear-gradient(to top, #333, #111);
+	--primary-text: #f5f5f5;
+	--secondary-text: #ccc;
+	--primary-bg-color: #222;
+	--secondary-bg-color: #051937;
+	--tertiary-bg-color: #000;
+	--transparent-gradient: linear-gradient(
+		to top left,
+		rgba(255, 255, 255, 0.1),
+		rgba(255, 255, 255, 0)
+	);
+}

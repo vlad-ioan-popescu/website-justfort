@@ -1,0 +1,678 @@
+/*************************************************/
+/********* CSS STYLES for JUSTFORT.RO ************/
+
+/**************** general variables *******/
+:root {
+	--primary-red: #c10000;
+	--secondary-red: #a30000;
+	--main-grey: #666;
+	--light-grey: #ccc;
+	--primary-bg-gradient: linear-gradient(to top, #fff, #ccc);
+	--primary-text: #222; /* dark: #f5f5f5 */
+	--secondary-text: #666;
+	--primary-bg-color: #f5f5f5; /* dark: #222 */
+	--secondary-bg-color: #fef6f3; /* dark: #051937 */
+	--tertiary-bg-color: #fff; /* dark: #000 */
+	--gold: #e5d78a;
+	--transparent-gradient: linear-gradient(
+		to top left,
+		rgba(0, 0, 0, 0.1),
+		rgba(0, 0, 0, 0)
+	);
+	/* smooth animation to anchor links */
+	scroll-behavior: smooth;
+}
+
+/*******  defaults ******/
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+ul,
+ol {
+	list-style: none;
+}
+/************** body defaults ***********/
+body {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 400;
+	color: var(--main-grey);
+	scroll-padding-top: 50px;
+	min-height: 1550px;
+	font-size: 2rem;
+	line-height: 1.5;
+}
+body * {
+	transition: color 0.4s ease-in, background-color 200ms ease-in;
+}
+h1,
+h2,
+p,
+span {
+	transition-delay: 0.2s;
+}
+/* Make images easier to work with */
+img,
+picture {
+	max-width: 100%;
+	display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+/* TYPOGRAPHY */
+h2 {
+	font-size: 4rem;
+	color: var(--primary-red);
+	font-weight: 700;
+}
+h3 {
+	padding: 0.5em 1.5em;
+	background-color: var(--secondary-red);
+	color: #fff;
+	font-size: 3rem;
+}
+h4 {
+	font-size: 2.5rem;
+	color: var(--secondary-red);
+}
+p {
+	margin-bottom: 2rem;
+}
+p.subtitle {
+	font-style: italic;
+	font-size: 2.2rem;
+	font-weight: 500;
+	color: var(--primary-text);
+}
+/* layout la titluri si subtitluri */
+h2,
+p.subtitle {
+	max-width: 80%;
+	margin: 0 auto;
+	margin-bottom: 1.5rem;
+	text-align: center;
+}
+a {
+	text-decoration: none;
+	color: var(--gold);
+}
+/* bullet list */
+ul {
+	margin-block: 2rem;
+}
+li {
+	padding-left: 1rem;
+	margin-bottom: 1em;
+}
+
+/********** utility classes *********/
+.red {
+	color: var(--primary-red);
+}
+.gold {
+	color: var(--gold);
+}
+.text-center {
+	text-align: center;
+}
+.narrow {
+	width: 90%;
+}
+.big {
+	font-size: 2em;
+}
+.v-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+/********* nav ***************/
+nav {
+	width: 100%;
+	min-height: 40px;
+	padding: 1rem 0;
+	background: var(--primary-bg-gradient);
+	/* box-shadow: 1px 3px 4px #444; */
+	border-bottom: 1px solid var(--light-grey);
+	z-index: 100;
+	position: sticky;
+	top: 0;
+}
+nav .container {
+	display: flex;
+	justify-content: space-between;
+}
+/*********** NAV ITEMS *******/
+.nav-item {
+	display: flex;
+	align-items: center;
+}
+.nav-item img {
+	width: 20px;
+	margin: 5px;
+	cursor: pointer;
+}
+
+/********* logo big or small ********/
+#main-logo {
+	width: 15rem;
+}
+#main-logo-small {
+	display: none;
+}
+
+/******** timer ********/
+.timer span {
+	color: var(--primary-red);
+	font-weight: 600;
+	font-size: 1.7rem;
+	margin-left: 0.5rem;
+	min-width: 5rem;
+}
+/******** theme buttons *********/
+
+/***** switch button *****/
+.buttons label.switch {
+	text-align: left;
+	width: 30px;
+	height: calc(30px / 2);
+	border-radius: 12px;
+	background-color: var(--primary-red);
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+.buttons label.switch > span {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+.buttons label.switch > input[type='checkbox'] {
+	opacity: 0;
+	position: absolute;
+}
+.buttons label.switch > span::before,
+.buttons label.switch > span::after {
+	content: '';
+	cursor: pointer;
+	position: absolute;
+}
+.buttons label.switch > span {
+	border-radius: 12px;
+}
+.buttons label.switch > span::before {
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+	background-color: var(--main-grey);
+	border-radius: 12px;
+	transition: opacity 0.2s ease-out 0.1s, transform 0.2s ease-out 0.1s;
+	transform: scale(1);
+	opacity: 1;
+}
+.buttons label.switch > span::after {
+	top: 50%;
+	z-index: 3;
+	transition: transform 0.4s cubic-bezier(0.44, -0.12, 0.07, 1.15);
+	width: calc(30px / 2);
+	height: calc(30px / 2);
+	transform: translate3d(0, -50%, 0);
+	background-color: #fff;
+	border-radius: 100%;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+.buttons label.switch > input[type='checkbox']:checked ~ span:before {
+	transform: scale(0);
+	opacity: 0.7;
+}
+.buttons label.switch > input[type='checkbox']:checked ~ span:after {
+	transform: translate3d(100%, -50%, 0);
+}
+
+/********* main nav links **********/
+.nav__link,
+.nav__link--cta {
+	color: var(--main-grey);
+	font-size: 1.4rem;
+	text-decoration: none;
+	outline: none;
+	border: none;
+	padding: 0.5rem 0.6vw;
+	position: relative;
+	transition: all 0.3s ease-in-out;
+}
+.nav__link:hover {
+	color: var(--primary-text);
+}
+.nav__link::before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	border-bottom: 2px solid var(--secondary-red);
+	bottom: 0;
+	left: 0;
+	transform: scale(0, 1);
+	transition: transform 250ms ease-out;
+}
+.nav__link:hover::before {
+	transform: scale(1, 1);
+}
+
+.nav__link--cta {
+	background-color: var(--secondary-red);
+	color: #fff !important;
+	border-radius: 5px;
+}
+.nav__link--cta:hover {
+	background-color: var(--primary-red);
+	box-shadow: 2px 2px 3px #222;
+}
+
+/************ mobile hamburger *******/
+.hamburger {
+	display: none;
+}
+.bar {
+	display: block;
+	width: 25px;
+	height: 4px;
+	background-color: var(--secondary-red);
+	border-radius: 100px;
+	margin: 5px auto;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.hamburger.active .bar:nth-child(1) {
+	transform: translateY(9px) rotate(45deg);
+}
+.hamburger.active .bar:nth-child(2) {
+	opacity: 0;
+}
+.hamburger.active .bar:nth-child(3) {
+	transform: translateY(-9px) rotate(-45deg);
+}
+
+/***********************************************/
+/************** SECTIONS - layout *************/
+/***********************************************/
+
+section,
+footer {
+	padding: 10rem 0;
+	border-top: 1px solid #ccc;
+}
+.container {
+	width: min(94%, 1200px);
+	margin: 0 auto;
+}
+.flex-container {
+	margin: 5rem 0;
+	display: flex;
+	gap: 2rem;
+}
+.card {
+	border: 1px solid var(--light-grey);
+	background-image: var(--transparent-gradient);
+	border-radius: 10px;
+	padding: 2.5rem 2rem;
+	flex: 1;
+	border-radius: 10px 10px 0 0;
+}
+.card img {
+	margin: 0 auto;
+	object-fit: cover;
+	transition: transform 300ms ease;
+}
+.card h4 {
+	text-align: center;
+	color: var(--primary-red);
+	font-size: 2rem;
+	margin-top: 2rem;
+}
+.card:hover {
+	border-color: var(--primary-text);
+}
+.card:hover img {
+	transform: scale(1.05);
+}
+.card:hover h3 {
+	background-color: var(--primary-red);
+}
+.card-image {
+	background: none;
+	border: none;
+	padding: 0;
+	overflow: hidden;
+}
+
+/*//////////////////////////////////////////////*/
+/***************** HERO SECTION ************/
+section.hero {
+	background-image: url('../img/cover.jpg');
+	background-size: cover;
+	background-position: left 20% center;
+	background-repeat: no-repeat;
+}
+.motto {
+	text-align: right;
+	width: 100%;
+	height: 50%;
+	padding-top: 50px;
+}
+.motto h1,
+.motto span {
+	font-size: 5rem;
+	font-weight: 800;
+	text-align: right;
+	line-height: 1.2;
+	color: var(--primary-text);
+}
+
+.motto .btn--cta {
+	text-align: center;
+	display: inline-block;
+	width: 18rem;
+	margin-top: 2rem;
+	padding: 0.75em 2em;
+	background-color: var(--secondary-red);
+	border: 2px solid #fff;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	color: #fff;
+	font-size: 2rem;
+	font-weight: bold;
+}
+.motto .btn--cta:hover {
+	background-color: var(--primary-red);
+	transform: translateY(-2px) translateX(-2px);
+	box-shadow: 3px 3px 5px #333;
+}
+
+/************ cycling words in motto ******/
+.motto .words {
+	overflow: hidden;
+	height: 6rem;
+}
+.motto span {
+	color: var(--secondary-red);
+	height: 100%;
+	display: block;
+	animation: spinWords 10s infinite;
+}
+
+@keyframes spinWords {
+	20% {
+		transform: translateY(-100%);
+	}
+	35% {
+		transform: translateY(-100%);
+	}
+	55% {
+		transform: translateY(-200%);
+	}
+	70% {
+		transform: translateY(-200%);
+	}
+	90% {
+		transform: translateY(-300%);
+	}
+	100% {
+		transform: translateY(-300%);
+	}
+}
+
+/******* SECTION - MENTENANTA ********/
+#mentenanta {
+	background-color: var(--primary-bg-color);
+	background-image: url(../img/bg-cctv-1.png);
+	background-repeat: no-repeat;
+	background-position: top 8% right;
+}
+.standard ul {
+	flex-grow: 1;
+}
+#mentenanta .card {
+	position: relative;
+}
+.premium-img {
+	position: absolute;
+	right: 2rem;
+	top: -2rem;
+	filter: drop-shadow(2px 2px 5px #222);
+	min-height: clamp(50px 10vw 140px);
+}
+/********* SECTION - INTERVENTII ***********/
+#interventii {
+	background-color: var(--secondary-bg-color);
+	background-image: url(../img/bg-smoke-detector.png);
+	background-repeat: no-repeat;
+	background-position: top left;
+}
+
+/********* SECTION - ALTE SERVICII ***********/
+#alte-servicii {
+	background-color: var(--tertiary-bg-color);
+	background-image: url(../img/bg-keypad.png);
+	background-repeat: no-repeat;
+	background-position: top 5% right 2%;
+}
+#alte-servicii .flex-container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/********* SECTION - ALTE SERVICII ***********/
+#despre-noi {
+	background-color: var(--primary-bg-color);
+	background-image: url(../img/bg-cctv-2.png);
+	background-repeat: no-repeat;
+	background-position: bottom left;
+}
+.logos {
+	margin: 2em auto;
+	display: flex;
+	justify-content: space-around;
+}
+.logos img {
+	height: clamp(3.5rem, 20vw, 6rem);
+}
+
+/********* SECTION - CONTACT ***********/
+#contact {
+	background-color: var(--secondary-bg-color);
+}
+
+.modal__form {
+	margin: 0 1rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+	gap: 1rem;
+}
+
+.modal__form label {
+	font-size: 1.7rem;
+	font-weight: 500;
+}
+
+.modal__form input,
+.modal__form textarea {
+	font-size: 1.7rem;
+	padding: 1rem 1.5rem;
+	border: 1px solid var(--main-grey);
+	border-radius: 0.5rem;
+	background-color: #f2f2f2;
+}
+
+.modal__form textarea {
+	grid-area: 2 / span 2;
+	max-height: 25rem;
+	overflow: auto;
+}
+.modal__form .wrong {
+	background-color: #f1a9a9;
+	color: --var(--secondary-red);
+}
+.modal__form button {
+	grid-column: 1 / span 2;
+	justify-self: flex-end;
+	margin-top: 1rem;
+	background: var(--primary-red);
+	color: #fff;
+	border: 1px solid #fff;
+	border-radius: 1rem;
+	padding: 1rem 3rem;
+	cursor: pointer;
+}
+.modal__form button:active {
+	transform: translateY(2px);
+}
+.message__response {
+	min-height: 6.5rem;
+	margin-top: 1rem;
+	font-size: 0.7em;
+	padding: 1em;
+	border: 2px solid var(--primary-bg-color);
+	border-color: transparent;
+}
+.message__response img {
+	float: left;
+}
+.message__response:has(span.ok) {
+	border-color: darkgreen;
+	color: green;
+}
+.message__response:has(span.not_ok) {
+	border-color: var(--secondary-red);
+	color: var(--primary-red);
+}
+
+/********* FOOTER ***********/
+footer span {
+	font-size: 80%;
+	display: block;
+	margin-bottom: 2rem;
+}
+
+/*****************************************/
+/********** responsive layouts **********/
+/*****************************************/
+
+/********* mobile *******/
+@media screen and (max-width: 900px) {
+	#main-logo {
+		width: 10rem;
+	}
+	.container {
+		width: 90%;
+	}
+	.flex-container {
+		flex-direction: column;
+		gap: 4rem;
+	}
+	.motto {
+		padding-top: 300px;
+		padding-bottom: 0;
+	}
+	.main-nav {
+		margin: 0;
+		position: fixed;
+		top: 55px;
+		left: 100%;
+		flex-direction: column;
+		background-color: var(--primary-bg-color);
+		width: 100%;
+		height: 100%;
+		padding-top: 5rem;
+		transition: 0.3s ease;
+	}
+	.main-nav.active {
+		left: 0;
+	}
+	.nav__link {
+		font-size: 1.5rem;
+		padding: 0.7rem;
+	}
+	.nav__link--cta {
+		margin-top: 1rem;
+		font-size: 1.5rem;
+		padding: 0.7rem;
+	}
+	.hamburger {
+		display: block;
+		cursor: pointer;
+	}
+	.card {
+		padding: 1rem;
+	}
+	.card-image {
+		padding: 0;
+	}
+	#alte-servicii {
+		background-image: none;
+	}
+	.modal__form {
+		display: flex;
+		flex-direction: column;
+	}
+	.modal__form input,
+	.modal__form textarea {
+		width: 100%;
+	}
+}
+@media screen and (max-width: 400px) {
+	.motto h1,
+	.motto span {
+		font-size: 3.5rem;
+		line-height: 1.2;
+	}
+	.motto .words {
+		height: 4rem;
+	}
+	h2 {
+		margin: 0 auto;
+		margin-bottom: 3rem;
+		font-size: 3.5rem;
+	}
+	h3 {
+		font-size: 2.5rem;
+	}
+	#main-logo-small {
+		display: flex;
+	}
+	#main-logo {
+		display: none;
+	}
+
+	section.hero {
+		background-position: top 0 left 20%;
+	}
+	.motto {
+		padding-top: 100px;
+	}
+	.premium {
+		top: 0.7em;
+		max-width: 60px;
+	}
+	.logos {
+		flex-direction: column;
+		gap: 3rem;
+	}
+}

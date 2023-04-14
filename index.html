@@ -21,10 +21,26 @@
 		<!-- css -->
 		<link rel="stylesheet" href="src/css/main.css" />
 		<link id="dark-theme" rel="stylesheet" href="" />
-		<!-- js -->
-		<script defer src="src/js/script.js"></script>
 	</head>
 	<body>
+		<!-- js  -->
+		<script defer src="src/js/script.js"></script>
+		<!-- Google tag (gtag.js) -->
+		<script
+			async
+			src="https://www.googletagmanager.com/gtag/js?id=G-VZM8MLLSD1"
+		></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-VZM8MLLSD1');
+		</script>
+
+		<!-- nav -->
 		<nav class="nav">
 			<div class="container">
 				<div class="nav-item logo">
@@ -78,6 +94,8 @@
 				</div>
 			</div>
 		</nav>
+
+		<!-- hero section -->
 		<section class="hero">
 			<div class="container">
 				<div class="motto">
@@ -165,6 +183,8 @@
 				<p></p>
 			</div>
 		</section>
+
+		<!-- other sections -->
 		<section id="interventii">
 			<div class="container">
 				<h2>INTERVENȚII</h2>

@@ -478,7 +478,7 @@ section.hero {
 	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 
-/********* SECTION - ALTE SERVICII ***********/
+/********* SECTION - DESPRE NOI  ***********/
 #despre-noi {
 	background-color: var(--primary-bg-color);
 	background-image: url(../img/bg-cctv-2.png);
@@ -488,10 +488,12 @@ section.hero {
 .logos {
 	margin: 2em auto;
 	display: flex;
-	justify-content: space-around;
+	justify-content: start;
+	flex-wrap: wrap;
 }
 .logos img {
-	height: clamp(3.5rem, 20vw, 6rem);
+	max-height: clamp(3.5rem, 20vw, 6rem);
+	margin-bottom: 3rem;
 }
 
 /********* SECTION - CONTACT ***********/
